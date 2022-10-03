@@ -16,8 +16,8 @@ class node:
         # Tree Direction 
         self.huff = ''
 
-dict = {} # Mapping each character to its corresponding huffman codes
-reverseDict = {} # Mapping huffman codes to each corresponding charater
+dict = {} 
+reverseDict = {}
 
 def printNodes(node, val = ''):
     newVal = val + str(node.huff)
@@ -103,6 +103,7 @@ def remove_padding(padded_encoded_text):
 def decode_text(encoded_text, reverse_mapping):
     current_code = ""
     decoded_text = ""
+    Ishu = ""
     for bit in encoded_text:
         current_code += bit
         if(current_code in reverse_mapping):
@@ -112,7 +113,6 @@ def decode_text(encoded_text, reverse_mapping):
     return decoded_text
 
 def decode(byte_string, reverse_mapping):
-    # Converting the byte string to the corresponding binary string
     bit_string = ""
     for byte in byte_string:
         bits = bin(byte)[2:].rjust(8, '0')
