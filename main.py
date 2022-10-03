@@ -30,11 +30,10 @@ class  MyNotePad:
                     return
                 self.current_file = "no-file"
                 self.master.destroy()
-            elif result == False:
+            elif result==False:
                 self.current_file = "no-file"
                 self.master.destroy()
 
-    # Clear all the text area
     def clear(self):
         self.txt_area.delete(1.0, END)
 
@@ -236,10 +235,10 @@ class  MyNotePad:
         self.edit_menu.add_separator()
         self.edit_menu.add_command(label = " Delete ", accelerator=" Del ", command = self.del_file)
 
-        # Creating a help menu
+        # Creating a help us menu
         self.help_menu = Menu(self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label = " Help ", menu = self.help_menu)
-        self.help_menu.add_command(label = " About Optimized Notepad ", command = self.about_notepad)
+        self.help_menu.add_command(label = " About This Optimized Notepad ", command = self.about_notepad)
 
         #Adding scrollbar
         scrollBar=Scrollbar(self.txt_area, cursor="circle")
@@ -247,9 +246,9 @@ class  MyNotePad:
         scrollBar.config(command=self.txt_area.yview)
         self.txt_area.config(yscrollcommand=scrollBar.set)
 
-        # Handling window closing
+        # Handling the window closing
         root.protocol("WM_DELETE_WINDOW", self.exit_file)
         
 root = Tk()
 b = MyNotePad(root)
-root.mainloop() # run the Tkinter event loop
+root.mainloop()
