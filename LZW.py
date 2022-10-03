@@ -1,14 +1,14 @@
-# Encoding function
+## Encoding function
 def encoder(s):
     if(s == ""):
         return ""
     dict = {}
 
-    #Intitial characters in dictionary
+    ## Intitial characters in dictionary
     for i in range(0, 256):
         dict[chr(i)] = i
 
-    # Using codes already in thr dictioanry and creating new by appending one next characters to them    
+    ## Using codes already in thr dictioanry and creating new by appending one next characters to them    
     p = ""
     c = ""
     p += s[0]
@@ -35,7 +35,7 @@ def encoder(s):
             ans = ans + str(output_code[i]) + ' '
     return ans
 
-# Decoding function
+## Decoding function
 def decoder(output_code):
     if len(output_code) == 0:
         return ""
@@ -57,13 +57,13 @@ def decoder(output_code):
         if n in dict:
             s = dict[n]
 
-        # Else is the case when we encouter the code before it is mapped (it will be mapped in this iteration only eg. aaa)
+        ## Else is the case when we encouter the code before it is mapped (it will be mapped in this iteration only eg. aaa)
         else:
             s = dict[old]
             s = s + c
         ans = ans + s
 
-        # Creating in mapping by adding one xharacter
+        ## Creating in mapping by adding one xharacter
         c = ""
         c = c + s[0]
         dict[count] = dict[old] + c
