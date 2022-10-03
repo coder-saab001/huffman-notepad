@@ -19,7 +19,7 @@ class node:
 dict = {} # Mapping each character to its corresponding huffman codes
 reverseDict = {} # Mapping huffman codes to each corresponding charater
 
-# Recursive function to get huffman codes corresponding to each character
+## Recursive function to get huffman codes corresponding to each character
 def printNodes(node, val = ''):
     newVal = val + str(node.huff)
 
@@ -33,15 +33,15 @@ def printNodes(node, val = ''):
         dict[node.symbol] = newVal
         reverseDict[newVal] = node.symbol
 
-# Encoding the given string to corresponding huffman codes
+## Encoding the given string to corresponding huffman codes
 def getEncodedText(originalText):
     encodedText = ""
     for i in originalText:
         encodedText = encodedText + dict[i]
     return encodedText
 
-# Adding padding at last so at to make the length of encoded string a multiple of 8
-# Also adding the length of padding aaded in front in 8-bits format only
+## Adding padding at last so at to make the length of encoded string a multiple of 8
+## Also adding the length of padding aaded in front in 8-bits format only
 def getPaddedEncodedText(encodedText):
     extra_padding = 8 - len(encodedText) % 8
     for i in range(0, extra_padding):
@@ -50,7 +50,7 @@ def getPaddedEncodedText(encodedText):
     encodedText = padded_info + encodedText
     return encodedText
 
-# Converting each set to 8-bits to its corresponding byte character
+## Converting each set to 8-bits to its corresponding byte character
 def getByteArray(paddedEncodedText):
     b = bytearray()
     for i in range(0, len(paddedEncodedText), 8):
@@ -58,8 +58,8 @@ def getByteArray(paddedEncodedText):
         b.append(int(byte, 2))
     return b
 
-# Function called by main file providing string data to encode 
-# Return decoded string and reverseDict codes
+## Function called by main file providing string data to encode 
+## Return decoded string and reverseDict codes
 def encode(originalText):
     freq = {}
     originalText = originalText.rstrip()
@@ -77,7 +77,7 @@ def encode(originalText):
 
     return reverseDict, byteArray
 
-# Function creating huffman tree and further calling printNodes to create huffman codes map
+## Function creating huffman tree and further calling printNodes to create huffman codes map
 def generateHuffmanCodes(freq):
     nodes = []
     for i in freq:
@@ -97,11 +97,11 @@ def generateHuffmanCodes(freq):
         nodes.remove(right)
         nodes.append(newNode)
     
-    # Huffman Tree is ready
+    ## Huffman Tree is ready
     if(len(nodes) > 0):
         printNodes(nodes[0])
 
-# Function extracting padding length and removing it
+## Function extracting padding length and removing it
 def remove_padding(padded_encoded_text):
     padded_info = padded_encoded_text[:8]
     extra_padding = int(padded_info, 2)
@@ -109,7 +109,7 @@ def remove_padding(padded_encoded_text):
     encoded_text = padded_encoded_text[:-1*extra_padding]
     return encoded_text
 
-# Decoding to the original text from the encoded binar string and reverse mapping
+## Decoding to the original text from the encoded binar string and reverse mapping
 def decode_text(encoded_text, reverse_mapping):
     current_code = ""
     decoded_text = ""
@@ -121,7 +121,7 @@ def decode_text(encoded_text, reverse_mapping):
             current_code = ""
     return decoded_text
 
-# Function decoding the encoded byte_string and reverse_mapping to the original text 
+## Function decoding the encoded byte_string and reverse_mapping to the original text yooo
 def decode(byte_string, reverse_mapping):
     # Converting the byte string to the corresponding binary string
     bit_string = ""
