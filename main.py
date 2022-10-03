@@ -10,7 +10,7 @@ import LZW
 class  MyNotePad:
     current_file = "no-file"
 
-    # Change backgrounf and foreground colors functions
+    # Change background and foreground colors functions
     def change_back_color(self):
         c = colorchooser.askcolor()
         self.txt_area.configure(background=c[1])
@@ -171,7 +171,7 @@ class  MyNotePad:
         self.txt_area.mark_set(INSERT, "1.0")
 
     def about_notepad(self):
-        messagebox.showinfo("Optimised Notepad","A Notepad By Ishant Goyal")
+        messagebox.showinfo("Optimised Notepad","A Notepad By coder-saab001")
         
     def __init__(self, master):
         self.master = master
@@ -249,11 +249,11 @@ class  MyNotePad:
         # Creating a help menu
         self.help_menu = Menu(self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label = " Help ", menu = self.help_menu)
-        self.help_menu.add_command(label = " About Notepad ", command = self.about_notepad)
+        self.help_menu.add_command(label = " About Optimized Notepad ", command = self.about_notepad)
 
         #Adding scrollbar
         scrollBar=Scrollbar(self.txt_area, cursor="circle")
-        scrollBar.pack(side=RIGHT,fill=Y)
+        scrollBar.pack(side=RIGHT, fill=Y)
         scrollBar.config(command=self.txt_area.yview)
         self.txt_area.config(yscrollcommand=scrollBar.set)
 
