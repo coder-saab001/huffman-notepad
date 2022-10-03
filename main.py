@@ -238,14 +238,6 @@ class  MyNotePad:
 
         #########################################################
 
-        # Creating color menu and adding to main menu
-        self.color_menu = Menu(self.main_menu, tearoff=False)
-        self.main_menu.add_cascade(label = " Color ", menu = self.color_menu)
-        self.color_menu.add_command(label = " Background Color ", command = self.change_back_color)
-        self.color_menu.add_command(label = " Foreground Color ", command = self.change_fore_color)
-
-        #########################################################
-
         # Creating a help menu
         self.help_menu = Menu(self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label = " Help ", menu = self.help_menu)

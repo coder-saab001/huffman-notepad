@@ -1,6 +1,4 @@
 # Optimised-Notepad 
-(Based on research paper https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.301.6716&rep=rep1&type=pdf)
-
 This is an Optimised Notepad which auto-compresses the text-file when the file is saved. Combination of compression Algorithms (LZW compression and Huffman compression algorithms) are used to compress the text file. It was able to achieve an average compression of about 65%. The best compression was about 80%.
 
 ## Details
@@ -74,7 +72,7 @@ And at the end, the output we receive is greatly smaller than input and the comb
  ```
 ### Decoding
 ```
- Function huffmanDecode(root, S)  
+ Function huffmanDecode(root, S) 
 
  1   n = S.size
  2   current = root
@@ -89,7 +87,7 @@ And at the end, the output we receive is greatly smaller than input and the comb
  14  return decodedString
 ```
 
-## Results of test files
+### Results of test files
 
 1. For very random 1MB test file, it was able to compress to 566KB.
    Compression Ratio: 43.4%.
@@ -99,11 +97,6 @@ And at the end, the output we receive is greatly smaller than input and the comb
    compess to 113KB.
    Compression Ratio: 78.1%.
 
-## Analysis
+### Analysis
 
 For commonly use files, containing relevant information the editor can achieve compression of about 70% to 75%.
-For random content with no proper meaning, it can achieve compression of about 40% to 50%.
-
-## Limitations
-
-Since the time taken by both of the algorithms is around O(N) for compressing the content, there is efficiency issue for large test files of >=10MB. Tkinter Gui editor also has some performance issue. 
