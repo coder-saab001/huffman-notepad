@@ -10,7 +10,6 @@ import LZW
 class  MyNotePad:
     current_file = "no-file"
 
-    # Change background and foreground colors functions
     def change_back_color(self):
         c = colorchooser.askcolor()
         self.txt_area.configure(background=c[1])
@@ -125,7 +124,7 @@ class  MyNotePad:
             messagebox.showerror("Codes File Not Found", "Required " + os.path.basename(fileLocation) + "Codes.txt not found.")
             return
         
-        # Getting encoded byte string and reverse dictionary from corresponding files
+        #################################
         f = open(file, 'rb')
         byteString = f.read()
         f.close()
@@ -182,6 +181,8 @@ class  MyNotePad:
         # Setting icon of Window
         p1 = PhotoImage(file = 'notepad.png')
         master.iconphoto(False, p1)
+        
+        ###############################################
 
         # Binding shortcut keys
         master.bind("<Control-o>", self.open_file)
@@ -221,7 +222,6 @@ class  MyNotePad:
         self.file_menu.add_separator()
         self.file_menu.add_command(label = " Quit ", accelerator=" Ctrl+Q ", command = self.exit_file)
         
-        #########################################################
 
         # Creating edit menu and adding to main menu
         self.edit_menu = Menu(self.main_menu, tearoff=False)
@@ -235,8 +235,6 @@ class  MyNotePad:
         self.edit_menu.add_command(label = " Select All ", accelerator=" Ctrl+A ", command = self.selectall_file)
         self.edit_menu.add_separator()
         self.edit_menu.add_command(label = " Delete ", accelerator=" Del ", command = self.del_file)
-
-        #########################################################
 
         # Creating a help menu
         self.help_menu = Menu(self.main_menu, tearoff=False)
