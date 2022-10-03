@@ -103,7 +103,6 @@ def remove_padding(padded_encoded_text):
 def decode_text(encoded_text, reverse_mapping):
     current_code = ""
     decoded_text = ""
-    Ishu = ""
     for bit in encoded_text:
         current_code += bit
         if(current_code in reverse_mapping):
