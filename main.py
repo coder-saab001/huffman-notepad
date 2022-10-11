@@ -118,12 +118,10 @@ class  MyNotePad:
         self.current_file = file
         fileLocation, file_extension = os.path.splitext(file)
 
-        # If corresponding codes file not exist, return error
         if not os.path.isfile(fileLocation+"Codes.txt"):
             messagebox.showerror("Codes File Not Found", "Required " + os.path.basename(fileLocation) + "Codes.txt not found.")
             return
         
-        #################################
         f = open(file, 'rb')
         byteString = f.read()
         f.close()
@@ -182,6 +180,7 @@ class  MyNotePad:
         master.iconphoto(False, p1)
 
         # Binding shortcut keys
+        # Explaination
         master.bind("<Control-o>", self.open_file)
         master.bind("<Control-O>", self.open_file)
 
@@ -232,6 +231,7 @@ class  MyNotePad:
         # Handling the window closing
         root.protocol("WM_DELETE_WINDOW", self.exit_file)
         
+# Driver Code       
 root = Tk()
 b = MyNotePad(root)
 root.mainloop()
