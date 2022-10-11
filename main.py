@@ -180,8 +180,6 @@ class  MyNotePad:
         # Setting icon of Window
         p1 = PhotoImage(file = 'notepad.png')
         master.iconphoto(False, p1)
-        
-        ###############################################
 
         # Binding shortcut keys
         master.bind("<Control-o>", self.open_file)
@@ -201,28 +199,13 @@ class  MyNotePad:
 
         master.bind("<Control-a>", self.selectall_file)
         master.bind("<Control-A>", self.selectall_file)
-        
-        # Creating text area
+
         self.txt_area = Text(master, font = ("Consolas"), padx=5, pady = 5, wrap=WORD, selectbackground="red", bd = 2, insertwidth=3, undo=True)
         self.txt_area.pack(fill = BOTH, expand = 1)
 
-        #Creating main menu
         self.main_menu = Menu()
         self.master.config(menu = self.main_menu)
 
-        # Creating file menu and adding to main menu
-        self.file_menu = Menu(self.main_menu, tearoff=False)
-        self.main_menu.add_cascade(label = " File ", menu = self.file_menu)
-        self.file_menu.add_command(label = " New ", accelerator=" Ctrl+N ", command = self.new_file)
-        self.file_menu.add_command(label = " Open ", accelerator=" Ctrl+O ", command = self.open_file)
-        self.file_menu.add_separator()
-        self.file_menu.add_command(label = " Save ", accelerator=" Ctrl+S ", command = self.save_file)
-        self.file_menu.add_command(label = " Save As ", accelerator=" Ctrl+Shift+S ", command = self.saveas_file)
-        self.file_menu.add_separator()
-        self.file_menu.add_command(label = " Quit ", accelerator=" Ctrl+Q ", command = self.exit_file)
-        
-
-        # Creating edit menu and adding to main menu
         self.edit_menu = Menu(self.main_menu, tearoff=False)
         self.main_menu.add_cascade(label = " Edit ", menu = self.edit_menu)
         self.edit_menu.add_command(label = " Undo ", accelerator=" Ctrl+Z ", command = self.undo_file)
