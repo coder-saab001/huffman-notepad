@@ -1,19 +1,10 @@
 import json
 class node:
-    def __init__(self, freq, symbol, left = None, right = None):
-        # Frequency of symbol
+    def __init__(self, freq, symbol, left = None, right = None)
         self.freq = freq
-
-        # Symbol itself
         self.symbol = symbol
-
-        # left node
         self.left = left
-        
-        # Right node
         self.right = right
-
-        # Tree Direction 
         self.huff = ''
 
 dict = {} 
@@ -57,7 +48,6 @@ def encode(originalText):
     freq = {}
     originalText = originalText.rstrip()
 
-    # Grenerating freq map
     for i in originalText:
         freq[i] = 0
     for i in originalText:
@@ -76,20 +66,15 @@ def generateHuffmanCodes(freq):
         nodes.append(node(freq[i], i))
     while len(nodes) > 1:
         nodes = sorted(nodes, key = lambda x:x.freq)
-
         left = nodes[0]
         right = nodes[1]
-
         left.huff = 0
         right.huff = 1
-
         newNode = node(left.freq + right.freq, '#', left, right)
-
         nodes.remove(left)
         nodes.remove(right)
         nodes.append(newNode)
-    
-    ## Huffman Tree is ready
+
     if(len(nodes) > 0):
         printNodes(nodes[0])
 
@@ -108,7 +93,7 @@ def decode_text(encoded_text, reverse_mapping):
         if(current_code in reverse_mapping):
             character = reverse_mapping[current_code]
             decoded_text += character
-            current_code = ""
+            current_code = " "
     return decoded_text
 
 def decode(byte_string, reverse_mapping):
