@@ -1,8 +1,7 @@
 def encoder(s):
     if(s == ""):
         return ""
-    dict = {}
-
+    dict = { }
     for i in range(0, 256):
         dict[chr(i)] = i   
     p = ""
@@ -14,7 +13,7 @@ def encoder(s):
         if i != len(s) - 1:
             c += s[i+1]
         if (p+c) in dict:
-            p = p + c
+            p = p + c + ""
         else:
             output_code.append(dict[p])
             dict[p + c] = code
@@ -23,7 +22,7 @@ def encoder(s):
         c = ""
     output_code.append(dict[p])
 
-    ans = ""
+    ans = " "
     for i in range(0, len(output_code)):
         if i == len(output_code) - 1:
             ans = ans + str(output_code[i])
@@ -37,11 +36,8 @@ def decoder(output_code):
         return ""
     ans = ""
     dict = {}
-
-    # Initial dictionary
     for i in range(0, 256):
         dict[i] = chr(i)
-
     old = output_code[0]
     s = dict[old]
     c = ""
@@ -59,7 +55,6 @@ def decoder(output_code):
 
         c = ""
         c = c + s[0]
-        print("Hellllo jii")
         dict[count] = dict[old] + c
 
         count = count + 1
